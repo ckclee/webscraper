@@ -16,11 +16,7 @@ For an extra challenge: Parse out information such as the article title, updated
 Built with Python3
 
 ## How to use
-Just run in the terminal inside the repo directory:
-
-```bash
-> python3 scrape.py news_url
-```
+Just double click RUN.bat
 
 Example:
 ```bash

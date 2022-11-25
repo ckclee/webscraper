@@ -8,10 +8,6 @@ r = requests.get(url)
 
 soup = BeautifulSoup(r.content, 'html.parser')
 
-with open('raw_html.txt', 'w') as output:
-    output.write(soup.prettify())
-output.close()
-
 headline_tag = soup.find(attrs={"data-qa":"headline-text"})
 author_tag = soup.find(attrs={"data-qa":"author-name"})
 timestamp_tag = soup.find(attrs={"data-qa":"timestamp"})
@@ -32,3 +28,6 @@ result += "\n" + content
 output = open('scraped_news.txt', 'w')
 output.write(result)
 output.close()
+
+print("Done.")
+print("Open scraped_news.txt to see results!")
