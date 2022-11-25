@@ -35,7 +35,7 @@ author = author_tag.get_text()
 timestamp = timestamp_tag.get_text()
 content = ""
 for part in content_tag:
-    content += "\n" + part.get_text()
+    content += "\n\n" + part.get_text()
 
 result = "Article title: " + headline
 result += "\nBy: " + author
