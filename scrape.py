@@ -1,10 +1,27 @@
 import requests
 import sys
 from bs4 import BeautifulSoup
+import os
 
-url = str(sys.argv[1])
+url = input("Please enter a valid Washington Post URL:\n")
+print("\n ... \n")
 
-r = requests.get(url)
+try:
+    r = requests.get(url)
+except:
+    print('Invalid URL, please try again')
+    
+if(r.status_code != 200):
+    if(r.status_code == 404):
+        print("Error getting news, status code is: " +
+              str(r.status_code))
+        raise Exception(
+            'It looks like this page dont exists! Check if your URL is valid')
+    else:
+        print("Error getting news, status code is: " +
+              str(r.status_code))
+        raise Exception(
+            'Check if the URL is valid, if you have an internet connection or try later!')
 
 soup = BeautifulSoup(r.content, 'html.parser')
 
@@ -31,3 +48,5 @@ output.close()
 
 print("Done.")
 print("Open scraped_news.txt to see results!")
+
+os.startfile('scraped_news.txt')
